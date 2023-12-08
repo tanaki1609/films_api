@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from movies import views
 from users import views as users_views
+from . import swagger
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,3 +34,5 @@ urlpatterns = [
     path('api/v1/genres/<int:id>/',
          views.GenreAPIViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}))
 ]
+
+urlpatterns += swagger.urlpatterns
